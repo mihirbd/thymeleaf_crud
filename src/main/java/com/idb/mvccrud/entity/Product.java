@@ -1,9 +1,11 @@
 package com.idb.mvccrud.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 @Entity
 public class Product {
@@ -15,6 +17,10 @@ public class Product {
 	private Double price;
 	private Double quantity;
 	private String Brand;
+	
+	@Lob
+	@Column(name = "image", columnDefinition="LONGBLOB")
+	private String image;
 	
 	public Long getId() {
 		return id;
@@ -47,6 +53,13 @@ public class Product {
 	public void setBrand(String brand) {
 		Brand = brand;
 	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 	
 	
 
